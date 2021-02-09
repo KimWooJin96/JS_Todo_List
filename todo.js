@@ -35,19 +35,18 @@ function loadToDo() {
     parsedToDo.forEach((todo) => {
       printToDo(todo.key);
     });
-  } else {
-    toDoForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const currentToDoValue = toDoInput.value;
-      // console.log(currentToDoValue);
-      printToDo(currentToDoValue);
-      toDoInput.value = "";
-    });
   }
 }
 
 function init() {
   loadToDo();
+  toDoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const currentToDoValue = toDoInput.value;
+    // console.log(currentToDoValue);
+    printToDo(currentToDoValue);
+    toDoInput.value = "";
+  });
 }
 
 init();
