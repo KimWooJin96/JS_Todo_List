@@ -1,0 +1,12 @@
+body {
+  color: blue;
+}
+
+.js-nameForm,
+.js-greeting {
+  display: none;
+}
+
+.show {
+  display: block;
+}
