@@ -4,17 +4,17 @@ const greeting = document.querySelector(".js-greeting");
 
 const USER_NAME = "userName";
 
-function saveName(currentValue) {
-  localStorage.setItem(USER_NAME, currentValue);
+function saveName(currentNameValue) {
+  localStorage.setItem(USER_NAME, currentNameValue);
 }
 
 function askName() {
   nameFormContainer.addEventListener("submit", (event) => {
     // console.log(nameFormInput.value);
-    const currentValue = nameFormInput.value;
+    const currentNameValue = nameFormInput.value;
     event.preventDefault();
-    saveName(currentValue);
-    printName(currentValue);
+    saveName(currentNameValue);
+    printName(currentNameValue);
     nameFormContainer.classList.remove("show");
     greeting.classList.add("show");
   });
