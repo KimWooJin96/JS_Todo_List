@@ -16,7 +16,6 @@ function askName() {
     saveName(currentNameValue);
     printName(currentNameValue);
     nameFormContainer.classList.remove("show");
-    greeting.classList.add("show");
   });
 }
 

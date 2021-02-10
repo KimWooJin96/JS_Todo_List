@@ -2,38 +2,52 @@ const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".toDoList");
 
-const TO_DO = "toDoList";
-const toDo = [];
+const TODO_VALUE = "toDo";
+let toDo = [];
 
-function saveToDo(toDo) {
-  localStorage.setItem(TO_DO, JSON.stringify(toDo));
-}
-
-function printToDo(currentToDoValue) {
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  const button = document.createElement("button");
-  let newId = Date.now();
-  const toDoObject = {
-    key: currentToDoValue,
-    index: newId,
-  };
-  span.innerText = `${currentToDoValue}`;
-  button.innerText = "❌";
-  li.appendChild(span);
-  li.appendChild(button);
-  li.id = newId;
-  toDoList.appendChild(li);
-  toDo.push(toDoObject);
+function removeToDo(event) {
+  const target = event.target;
+  const li = target.parentNode;
+  toDoList.removeChild(li);
+  const cleanToDos = toDo.filter((todo) => {
+    return todo.index !== parseInt(li.id);
+  });
+  toDo = cleanToDos;
   saveToDo(toDo);
 }
 
+function saveToDo(toDo) {
+  localStorage.setItem(TODO_VALUE, JSON.stringify(toDo));
+}
+
+function paintToDo(currentToDo) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const button = document.createElement("button");
+  const index = Date.now();
+  newToDo = {
+    index: index,
+    key: currentToDo,
+  };
+  span.innerText = `${currentToDo}`;
+  button.innerText = "❌";
+  li.appendChild(span);
+  li.appendChild(button);
+  li.id = index;
+  toDoList.appendChild(li);
+  toDo.push(newToDo);
+  // console.log(toDo);
+  saveToDo(toDo);
+  button.addEventListener("click", removeToDo);
+}
+
 function loadToDo() {
-  const loadedToDo = localStorage.getItem(TO_DO);
-  if (loadedToDo !== null) {
-    const parsedToDo = JSON.parse(loadedToDo);
-    parsedToDo.forEach((todo) => {
-      printToDo(todo.key);
+  const currentToDo = localStorage.getItem(TODO_VALUE);
+  const parsedToDo = JSON.parse(currentToDo);
+  console.log(parsedToDo);
+  if (currentToDo !== null) {
+    parsedToDo.forEach((toDo) => {
+      paintToDo(toDo.key);
     });
   }
 }
@@ -42,10 +56,10 @@ function init() {
   loadToDo();
   toDoForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    const currentToDoValue = toDoInput.value;
-    // console.log(currentToDoValue);
-    printToDo(currentToDoValue);
+    const toDoValue = toDoInput.value;
+    // console.log(toDoValue);
     toDoInput.value = "";
+    paintToDo(toDoValue);
   });
 }
 
