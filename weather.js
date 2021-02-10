@@ -1,6 +1,7 @@
 const weather = document.querySelector(".js-weather");
 const currentTemp = weather.querySelector(".js-weather__currentTemp");
-const maxMinTemp = weather.querySelector(".js-weather__maxMinTemp");
+const maxTemp = weather.querySelector(".js-weather__maxTemp");
+const minTemp = weather.querySelector(".js-weather__minTemp");
 
 const API_KEY = "1ad1c88cb63426f2c04acd22790476df";
 const COORD = "coordinates";
@@ -15,8 +16,9 @@ function getWeathers(lat, lon) {
       const temp = json.main.temp;
       const tempMax = json.main.temp_max;
       const tempMin = json.main.temp_min;
-      currentTemp.innerText = `${cityName}'s current temperature : ${temp}`;
-      maxMinTemp.innerText = `Today's maximum temperature : ${tempMax} minimum temperature : ${tempMin}`;
+      currentTemp.innerText = `${cityName} @ ${temp}°C`;
+      maxTemp.innerText = `maximum @ ${tempMax}°C`;
+      minTemp.innerText = `minimum @ ${tempMin}°C`;
     });
 }
 
