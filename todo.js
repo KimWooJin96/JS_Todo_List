@@ -2,25 +2,26 @@ const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".toDoList");
 
-const TODO_VALUE = "toDo";
-let toDo = [];
+const TODO_VALUE = "toDos";
+let toDos = [];
 
 function removeToDo(event) {
   const target = event.target;
   const li = target.parentNode;
   toDoList.removeChild(li);
-  const cleanToDos = toDo.filter((todo) => {
-    return todo.index !== parseInt(li.id);
+
+  const cleanToDos = toDos.filter((toDo) => {
+    return toDo.index !== parseInt(li.id);
   });
-  toDo = cleanToDos;
-  saveToDo(toDo);
+  toDos = cleanToDos;
+  saveToDo();
 }
 
-function saveToDo(toDo) {
-  localStorage.setItem(TODO_VALUE, JSON.stringify(toDo));
+function saveToDo() {
+  localStorage.setItem(TODO_VALUE, JSON.stringify(toDos));
 }
 
-function paintToDo(currentToDo) {
+function paintToDoInitial(currentToDo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
   const button = document.createElement("button");
@@ -35,19 +36,39 @@ function paintToDo(currentToDo) {
   li.appendChild(button);
   li.id = index;
   toDoList.appendChild(li);
-  toDo.push(newToDo);
-  // console.log(toDo);
-  saveToDo(toDo);
+  toDos.push(newToDo);
+  // console.log(toDos);
+  saveToDo();
+  button.addEventListener("click", removeToDo);
+}
+
+function paintToDoSaved(key, index) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const button = document.createElement("button");
+  newToDo = {
+    index,
+    key,
+  };
+  span.innerText = `${key}`;
+  button.innerText = "❌";
+  li.appendChild(span);
+  li.appendChild(button);
+  li.id = index;
+  toDoList.appendChild(li);
+  toDos.push(newToDo);
+  // console.log(toDos);
+  saveToDo();
   button.addEventListener("click", removeToDo);
 }
 
 function loadToDo() {
   const currentToDo = localStorage.getItem(TODO_VALUE);
   const parsedToDo = JSON.parse(currentToDo);
-  console.log(parsedToDo);
+  // console.log(parsedToDo);
   if (currentToDo !== null) {
-    parsedToDo.forEach((toDo) => {
-      paintToDo(toDo.key);
+    parsedToDo.forEach((toDos) => {
+      paintToDoSaved(toDos.key, toDos.index);
     });
   }
 }
@@ -59,7 +80,7 @@ function init() {
     const toDoValue = toDoInput.value;
     // console.log(toDoValue);
     toDoInput.value = "";
-    paintToDo(toDoValue);
+    paintToDoInitial(toDoValue);
   });
 }
 
