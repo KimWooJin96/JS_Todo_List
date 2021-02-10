@@ -1,5 +1,10 @@
 const clockContainer = document.querySelector(".js-time");
-const clockTitle = clockContainer.querySelector("h1");
+const clockDate = clockContainer.querySelector(".js-time__date");
+const clockTitle = clockContainer.querySelector(".js-time__clock");
+
+function printDate(year, month, day) {
+  clockDate.innerText = `${year}.${month}.${day}`;
+}
 
 function printTime(hours, minutes, seconds) {
   let amPm = "A.M.";
@@ -14,9 +19,15 @@ function printTime(hours, minutes, seconds) {
 
 function getTime() {
   const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth();
+  const day = date.getDay();
+
   const hours = date.getHours();
   const minutes = date.getMinutes();
   const seconds = date.getSeconds();
+
+  printDate(year, month, day);
   printTime(hours, minutes, seconds);
 }
 
