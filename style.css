@@ -137,10 +137,6 @@ form:hover {
   padding: 4px;
 }
 
-.show {
-  display: block;
-}
-
 .js-greeting .show {
   display: block;
   margin-left: 16px;
@@ -148,6 +144,14 @@ form:hover {
 }
 
 /* todo */
+
+.js-toDoForm {
+  display: none;
+}
+
+.show {
+  display: block;
+}
 
 .toDoList {
   padding-left: 0px;

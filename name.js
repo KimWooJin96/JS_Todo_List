@@ -3,6 +3,7 @@ const nameFormInput = nameFormContainer.querySelector("input");
 const greeting = document.querySelector(".js-greeting");
 const greetingText = greeting.querySelector(".js-greeting__text");
 const logoutBtn = greeting.querySelector("i");
+const toDoForm2 = document.querySelector(".js-toDoForm");
 
 const USER_NAME = "userName";
 
@@ -33,6 +34,7 @@ function printName(currentName) {
   greetingText.innerText = `Hello ${currentName}!`;
   greetingText.classList.add("show");
   logoutBtn.classList.add("show");
+  toDoForm2.classList.add("show");
 }
 
 function loadName() {
