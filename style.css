@@ -7,6 +7,7 @@
   --color-white: white;
   --color-form-border: #ffecb3;
   --color-background: #455a64;
+  --color-logout: #f50057;
 
   --annimation-duration: 300ms;
 }
@@ -96,17 +97,54 @@ form:hover {
 /* name */
 
 .js-nameForm,
-.js-greeting {
+.js-greeting__text {
   display: none;
 }
 
 .js-greeting {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
   font-size: var(--font-medium);
-  margin-bottom: 32px;
+  margin-bottom: 8px;
+}
+
+.js-greeting i {
+  display: none;
+}
+
+.js-greeting i:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  color: var(--color-logout);
+}
+
+.js-greeting__logout {
+  display: none;
+}
+
+.js-greeting:hover .js-greeting__logout {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: -28px;
+  right: -86px;
+  background-color: var(--color-background);
+  font-size: var(--font-micro);
+  border: 2px solid var(--color-white);
+  border-radius: 8px;
+  padding: 4px;
 }
 
 .show {
   display: block;
+}
+
+.js-greeting .show {
+  display: block;
+  margin-left: 16px;
+  transition: all var(--annimation-duration) ease-in;
 }
 
 /* todo */
@@ -157,8 +195,11 @@ form:hover {
   left: 0;
   padding: 48px;
   font-size: var(--font-medium);
-  transition: all var(--annimation-duration) ease-in;
   cursor: pointer;
+}
+
+.toggleBtn i {
+  transition: all var(--annimation-duration) ease-in-out;
 }
 
 .toggleBtn:hover i {

@@ -1,8 +1,18 @@
 const nameFormContainer = document.querySelector(".js-nameForm");
 const nameFormInput = nameFormContainer.querySelector("input");
 const greeting = document.querySelector(".js-greeting");
+const greetingText = greeting.querySelector(".js-greeting__text");
+const logoutBtn = greeting.querySelector("i");
 
 const USER_NAME = "userName";
+
+function handleLogout() {
+  logoutBtn.addEventListener("click", () => {
+    localStorage.removeItem(USER_NAME);
+    localStorage.removeItem(TODO_VALUE);
+    window.location.reload();
+  });
+}
 
 function saveName(currentNameValue) {
   localStorage.setItem(USER_NAME, currentNameValue);
@@ -20,14 +30,16 @@ function askName() {
 }
 
 function printName(currentName) {
-  greeting.innerText = `Hello nice to meet you ${currentName}!`;
-  greeting.classList.add("show");
+  greetingText.innerText = `Hello ${currentName}!`;
+  greetingText.classList.add("show");
+  logoutBtn.classList.add("show");
 }
 
 function loadName() {
   const currentName = localStorage.getItem(USER_NAME);
   if (currentName === null) {
     nameFormContainer.classList.add("show");
+    logoutBtn.classList.remove("show");
     askName();
   } else {
     printName(currentName);
@@ -36,6 +48,7 @@ function loadName() {
 
 function init() {
   loadName();
+  handleLogout();
 }
 
 init();
