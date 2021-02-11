@@ -5,6 +5,17 @@ const toDoList = document.querySelector(".toDoList");
 const TODO_VALUE = "toDos";
 let toDos = [];
 
+function countToDo() {
+  const li = toDoList.querySelectorAll("li");
+  const countToDo = document.querySelector(".js-countToDo");
+  const liCount = li.length;
+  if (liCount === 0) {
+    countToDo.innerText = "Nothing to do!!";
+  } else {
+    countToDo.innerText = `${liCount}`;
+  }
+}
+
 function removeToDo(event) {
   const target = event.target;
   const li = target.parentNode;
@@ -15,6 +26,7 @@ function removeToDo(event) {
   });
   toDos = cleanToDos;
   saveToDo();
+  countToDo();
 }
 
 function saveToDo() {
@@ -81,7 +93,9 @@ function init() {
     // console.log(toDoValue);
     toDoInput.value = "";
     paintToDoInitial(toDoValue);
+    countToDo();
   });
+  countToDo();
 }
 
 init();
