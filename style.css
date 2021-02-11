@@ -7,6 +7,7 @@
 }
 
 body {
+  font-family: "Lexend Giga", sans-serif;
   color: var(--color-white);
   background-color: black;
   margin: 0;
@@ -22,11 +23,12 @@ ul {
 }
 
 button {
-  background-color: transparent;
+  background-color: var(--color-white);
   border: 1px solid var(--color-white);
   width: 40px;
   height: 40px;
   margin-left: 16px;
+  border-radius: 8px;
 }
 
 /* bg */
