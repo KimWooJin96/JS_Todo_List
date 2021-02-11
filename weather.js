@@ -2,9 +2,17 @@ const weather = document.querySelector(".js-weather");
 const currentTemp = weather.querySelector(".js-weather__currentTemp");
 const maxTemp = weather.querySelector(".js-weather__maxTemp");
 const minTemp = weather.querySelector(".js-weather__minTemp");
+const toggleBtn = document.querySelector(".toggleBtn");
 
 const API_KEY = "1ad1c88cb63426f2c04acd22790476df";
 const COORD = "coordinates";
+
+function handleToggleBtn() {
+  toggleBtn.addEventListener("click", (event) => {
+    weather.classList.toggle("invisible");
+    weather.classList.toggle("visible");
+  });
+}
 
 function getWeathers(lat, lon) {
   fetch(
@@ -61,6 +69,7 @@ function loadWeather() {
 
 function init() {
   loadWeather();
+  handleToggleBtn();
 }
 
 init();

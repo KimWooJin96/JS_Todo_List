@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Lexend+Giga&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/d355f46a66.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Todo</title>
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -30,10 +34,15 @@
     </form>
     <ul class="toDoList"></ul>
 
-    <div class="js-weather">
+    <div class="js-weather invisible">
       <div class="js-weather__currentTemp"></div>
       <div class="js-weather__maxTemp"></div>
       <div class="js-weather__minTemp"></div>
+    </div>
+
+    <div class="toggleBtn">
+      <i class="fas fa-bars"></i>
+      <span>Today's Weather</span>
     </div>
 
     <script src="clock.js"></script>

@@ -2,15 +2,19 @@
   --font-large: 36px;
   --font-medium: 24px;
   --font-small: 16px;
+  --font-micro: 8px;
 
   --color-white: white;
-  --color-light-yellow: #ffecb3;
+  --color-form-border: #ffecb3;
+  --color-background: #455a64;
+
+  --annimation-duration: 300ms;
 }
 
 body {
   font-family: "Lexend Giga", sans-serif;
   color: var(--color-white);
-  background-color: black;
+  background-color: var(--color-background);
   margin: 0;
   height: 100vh;
   display: flex;
@@ -35,12 +39,12 @@ button {
 form {
   width: 500px;
   margin-bottom: 16px;
-  transition: all 300ms ease-in-out;
+  transition: all var(--annimation-duration) ease-in-out;
 }
 
 input {
   width: 100%;
-  border: 10px solid var(--color-light-yellow);
+  border: 10px solid var(--color-form-border);
   border-radius: 8px;
   padding: 12px;
   cursor: pointer;
@@ -123,11 +127,57 @@ form:hover {
 }
 
 /* weather */
+
 .js-weather {
+  background-color: var(--color-background);
+  border: 3px solid var(--color-white);
+  border-radius: 8px;
+  margin-left: 8px;
   padding: 16px;
   display: flex;
   flex-direction: column;
   position: absolute;
+  top: 60px;
+  left: 0;
+  transition: all var(--annimation-duration) ease-out;
+}
+
+.js-weather.visible {
+  transform: translateY(30px);
+  opacity: 1;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+.toggleBtn {
+  position: absolute;
   top: 0;
   left: 0;
+  padding: 48px;
+  font-size: var(--font-medium);
+  transition: all var(--annimation-duration) ease-in;
+  cursor: pointer;
+}
+
+.toggleBtn:hover i {
+  transform: scale(1.1) rotate(-45deg);
+}
+
+.toggleBtn span {
+  display: none;
+}
+
+.toggleBtn:hover span {
+  position: absolute;
+  top: 24px;
+  left: 6px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+  border-radius: 8px;
+  background-color: var(--color-background);
+  font-size: var(--font-micro);
 }
