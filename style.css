@@ -4,6 +4,7 @@
   --font-small: 16px;
 
   --color-white: white;
+  --color-light-yellow: #ffecb3;
 }
 
 body {
@@ -34,13 +35,19 @@ button {
 form {
   width: 500px;
   margin-bottom: 16px;
+  transition: all 300ms ease-in-out;
 }
 
 input {
   width: 100%;
-  border: 3px solid var(--color-white);
+  border: 10px solid var(--color-light-yellow);
   border-radius: 8px;
   padding: 12px;
+  cursor: pointer;
+}
+
+form:hover {
+  transform: scale(1.1);
 }
 
 /* bg */
