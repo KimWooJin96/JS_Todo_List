@@ -12,4 +12,6 @@ Using Html, Css, Javascript
 
 ### 4. Get today's weather imformation
 
+## Screenshot
+
 <img src="/images/screenshot.png" width="450px" height="300px" title=""></img><br/>

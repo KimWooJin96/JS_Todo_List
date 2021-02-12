@@ -10,6 +10,7 @@
   --color-logout: #f50057;
   --color-complete-btn: #69f0ae;
   --color-exit-btn: #f50057;
+  --color-scrollbar: white;
 
   --annimation-duration: 300ms;
 }
@@ -60,6 +61,20 @@ input {
 
 form:hover {
   transform: scale(1.1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-scrollbar);
+  border-radius: 8px;
 }
 
 /* bg */
@@ -198,7 +213,7 @@ form:hover {
   background-color: var(--color-background);
   border: 2px solid var(--color-white);
   border-radius: 8px;
-  max-height: 300px;
+  max-height: 200px;
 }
 
 .toDoList__toDo__list,
@@ -284,6 +299,12 @@ form:hover {
     width: 400px;
   }
 
+  button {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+  }
+
   .js-time {
     font-size: var(--font-medium);
   }
@@ -298,6 +319,16 @@ form:hover {
 
   .toDoList {
     flex-direction: column;
+  }
+
+  .toDoList__toDo,
+  .toDoList__complete {
+    max-height: 100px;
+  }
+
+  .toDoList__toDo__list span,
+  .toDoList__complete span {
+    font-size: var(--font-small);
   }
 
   .toggleBtn {
