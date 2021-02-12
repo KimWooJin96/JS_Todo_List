@@ -1,12 +1,12 @@
 const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
-const toDoList = document.querySelector(".toDoList");
+const toDoListUncomplete = document.querySelector(".toDoList__toDo__list");
 
 const TODO_VALUE = "toDos";
 let toDos = [];
 
 function countToDo() {
-  const li = toDoList.querySelectorAll("li");
+  const li = toDoListUncomplete.querySelectorAll("li");
   const countToDo = document.querySelector(".js-countToDo");
   const liCount = li.length;
   if (liCount === 0) {
@@ -19,7 +19,7 @@ function countToDo() {
 function removeToDo(event) {
   const target = event.target;
   const li = target.parentNode;
-  toDoList.removeChild(li);
+  toDoListUncomplete.removeChild(li);
 
   const cleanToDos = toDos.filter((toDo) => {
     return toDo.index !== parseInt(li.id);
@@ -36,18 +36,18 @@ function saveToDo() {
 function paintToDoInitial(currentToDo) {
   const li = document.createElement("li");
   const span = document.createElement("span");
-  const button = document.createElement("button");
+  const buttonExit = document.createElement("button");
   const index = Date.now();
   newToDo = {
     index: index,
     key: currentToDo,
   };
   span.innerText = `${currentToDo}`;
-  button.innerText = "❌";
+  buttonExit.innerText = "❌";
   li.appendChild(span);
-  li.appendChild(button);
+  li.appendChild(buttonExit);
   li.id = index;
-  toDoList.appendChild(li);
+  toDoListUncomplete.appendChild(li);
   toDos.push(newToDo);
   // console.log(toDos);
   saveToDo();
@@ -67,7 +67,7 @@ function paintToDoSaved(key, index) {
   li.appendChild(span);
   li.appendChild(button);
   li.id = index;
-  toDoList.appendChild(li);
+  toDoListUncomplete.appendChild(li);
   toDos.push(newToDo);
   // console.log(toDos);
   saveToDo();

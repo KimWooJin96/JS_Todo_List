@@ -26,15 +26,18 @@ body {
 
 ul {
   list-style: none;
+  padding-left: 0;
 }
 
 button {
   background-color: var(--color-white);
   border: 1px solid var(--color-white);
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
   margin-left: 16px;
   border-radius: 8px;
+  padding: 0;
+  cursor: pointer;
 }
 
 form {
@@ -154,7 +157,8 @@ form:hover {
 }
 
 .toDoList {
-  padding-left: 0px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .toDoList li {
@@ -164,7 +168,20 @@ form:hover {
   align-items: center;
 }
 
-.toDoList span {
+.toDoList__toDo,
+.toDoList__complete {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+  padding: 8px;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-white);
+  border-radius: 8px;
+}
+
+.toDoList__toDo span,
+.toDoList__complete span {
+  text-align: center;
   font-size: var(--font-small);
 }
 
