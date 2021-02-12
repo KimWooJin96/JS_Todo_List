@@ -4,7 +4,7 @@ const IMG_NUM = 5;
 
 function applyImage(randomNum) {
   const image = new Image();
-  image.src = `/images/${randomNum + 1}.jpg`;
+  image.src = `https://user-images.githubusercontent.com/62231339/107779774-2a25ce80-6d89-11eb-8b91-63f4f189e9e8.jpg`;
   image.classList.add("bgImage");
   body.appendChild(image);
 }
