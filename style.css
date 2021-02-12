@@ -8,6 +8,8 @@
   --color-form-border: #ffecb3;
   --color-background: #455a64;
   --color-logout: #f50057;
+  --color-complete-btn: #69f0ae;
+  --color-exit-btn: #f50057;
 
   --annimation-duration: 300ms;
 }
@@ -166,6 +168,22 @@ form:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.toDoList button {
+  transition: all var(--annimation-duration) ease-out;
+}
+
+.toDoList button:hover {
+  transform: scale(1.1);
+}
+
+#button__complete:hover {
+  background-color: var(--color-complete-btn);
+}
+
+#button__exit:hover {
+  background-color: var(--color-exit-btn);
 }
 
 .toDoList__toDo,

@@ -87,6 +87,7 @@ function paintToDoComplete(moveToDos) {
   };
   span.innerText = `${moveToDos[0].key}`;
   buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
   li.appendChild(span);
   li.appendChild(buttonExit);
   li.id = index;
@@ -110,7 +111,9 @@ function paintToDoInitial(currentToDo) {
   };
   span.innerText = `${currentToDo}`;
   buttonComplete.innerText = "✔️";
+  buttonComplete.id = "button__complete";
   buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
   li.appendChild(span);
   li.appendChild(buttonComplete);
   li.appendChild(div);
@@ -137,6 +140,7 @@ function paintToDoCompleteSaved(key, index) {
   };
   span.innerText = `${key}`;
   buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
   li.appendChild(span);
   li.appendChild(buttonExit);
   li.id = index;
@@ -159,7 +163,9 @@ function paintToDoSaved(key, index) {
   };
   span.innerText = `${key}`;
   buttonComplete.innerText = "✔️";
+  buttonComplete.id = "button__complete";
   buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
   li.appendChild(span);
   li.appendChild(div);
   div.appendChild(buttonComplete);
