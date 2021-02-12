@@ -16,6 +16,8 @@ function countToDo() {
   const liCountComplete = liComplete.length;
   if (liCount === 0) {
     countToDo.innerText = "Nothing to do!!";
+  } else if (liCount === liCountComplete) {
+    countToDo.innerText = "Clear Well done!!";
   } else {
     countToDo.innerText = `Completed : ${liCountComplete} / Total : ${liCount}`;
   }
