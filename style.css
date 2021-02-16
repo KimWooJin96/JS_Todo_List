@@ -216,6 +216,10 @@ form:hover {
   max-height: 200px;
 }
 
+.toDoList__toDo {
+  margin-right: 128px;
+}
+
 .toDoList__toDo__list,
 .toDoList__complete__list {
   overflow-y: scroll;
