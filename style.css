@@ -177,6 +177,7 @@ form:hover {
 }
 
 .toDoList {
+  margin-top: 8px;
   display: flex;
   justify-content: space-between;
   overflow-y: hidden;
@@ -222,7 +223,7 @@ form:hover {
 }
 
 .toDoList__toDo {
-  margin-right: 128px;
+  margin-right: 96px;
 }
 
 .toDoList__toDo__list,
