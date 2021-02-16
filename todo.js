@@ -23,9 +23,23 @@ function countToDo() {
   }
 }
 
+function returnToUncomplete(event) {
+  const target = event.target;
+  const li = target.parentNode.parentNode;
+
+  if (toDosDone.length === 1) {
+    paintToDoSaved(toDosDone[0].key, toDosDone[0].index);
+  } else {
+    const moveCompleteToDos = toDosDone.filter((todo) => {
+      return todo.index === parseInt(li.id);
+    });
+    paintToDoSaved(moveCompleteToDos[0].key, moveCompleteToDos[0].index);
+  }
+}
+
 function removeToDoComplete(event) {
   const target = event.target;
-  const li = target.parentNode;
+  const li = target.parentNode.parentNode;
   toDoListComplete.removeChild(li);
 
   const cleanToDos = toDosDone.filter((toDo) => {
@@ -34,6 +48,69 @@ function removeToDoComplete(event) {
   toDosDone = cleanToDos;
   saveToDoComplete();
   countToDo();
+}
+
+function saveToDoComplete() {
+  localStorage.setItem(TODO_COMPLETE, JSON.stringify(toDosDone));
+}
+
+function paintToDoCompleteSaved(key, index) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const div = document.createElement("div");
+  const buttonBefore = document.createElement("button");
+  const buttonExit = document.createElement("button");
+  newToDo = {
+    index,
+    key,
+  };
+  span.innerText = `${key}`;
+  buttonBefore.innerText = " 👈";
+  buttonBefore.id = "button__before";
+  buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
+  li.appendChild(span);
+  li.appendChild(div);
+  div.appendChild(buttonBefore);
+  div.appendChild(buttonExit);
+  li.id = index;
+  toDoListComplete.appendChild(li);
+  toDosDone.push(newToDo);
+  // console.log(toDos);
+  saveToDoComplete();
+  buttonExit.addEventListener("click", removeToDoComplete);
+  buttonBefore.addEventListener("click", returnToUncomplete);
+  buttonBefore.addEventListener("click", removeToDoComplete);
+}
+
+function paintToDoComplete(moveToDos) {
+  const li = document.createElement("li");
+  const span = document.createElement("span");
+  const div = document.createElement("div");
+  const buttonBefore = document.createElement("button");
+  const buttonExit = document.createElement("button");
+  const index = moveToDos[0].index;
+  newToDo = {
+    index: index,
+    key: moveToDos[0].key,
+  };
+  span.innerText = `${moveToDos[0].key}`;
+  buttonBefore.innerText = " 👈";
+  buttonBefore.id = "button__before";
+  buttonExit.innerText = "❌";
+  buttonExit.id = "button__exit";
+  li.appendChild(span);
+  li.appendChild(div);
+  div.appendChild(buttonBefore);
+  div.appendChild(buttonExit);
+  li.id = index;
+  toDoListComplete.appendChild(li);
+  toDosDone.push(newToDo);
+  // console.log(toDosDone);
+  saveToDoComplete();
+  buttonExit.addEventListener("click", removeToDoComplete);
+  buttonBefore.addEventListener("click", returnToUncomplete);
+  buttonBefore.addEventListener("click", removeToDoComplete);
 }
 
 function completeToDo(event) {
@@ -45,53 +122,6 @@ function completeToDo(event) {
   });
   // console.log(moveToDos[0].index);
   paintToDoComplete(moveToDos);
-}
-
-function saveToDoComplete() {
-  localStorage.setItem(TODO_COMPLETE, JSON.stringify(toDosDone));
-}
-
-function paintToDoCompleteSaved(key, index) {
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  const buttonExit = document.createElement("button");
-  newToDo = {
-    index,
-    key,
-  };
-  span.innerText = `${key}`;
-  buttonExit.innerText = "❌";
-  buttonExit.id = "button__exit";
-  li.appendChild(span);
-  li.appendChild(buttonExit);
-  li.id = index;
-  toDoListComplete.appendChild(li);
-  toDosDone.push(newToDo);
-  // console.log(toDos);
-  saveToDoComplete();
-  buttonExit.addEventListener("click", removeToDoComplete);
-}
-
-function paintToDoComplete(moveToDos) {
-  const li = document.createElement("li");
-  const span = document.createElement("span");
-  const buttonExit = document.createElement("button");
-  const index = moveToDos[0].index;
-  newToDo = {
-    index: index,
-    key: moveToDos[0].key,
-  };
-  span.innerText = `${moveToDos[0].key}`;
-  buttonExit.innerText = "❌";
-  buttonExit.id = "button__exit";
-  li.appendChild(span);
-  li.appendChild(buttonExit);
-  li.id = index;
-  toDoListComplete.appendChild(li);
-  toDosDone.push(newToDo);
-  // console.log(toDosDone);
-  saveToDoComplete();
-  buttonExit.addEventListener("click", removeToDoComplete);
 }
 
 function removeToDo(event) {
@@ -191,7 +221,6 @@ function loadToDo() {
   if (currentCompleteToDo !== null) {
     parsedCompleteToDo.forEach((toDos) => {
       paintToDoCompleteSaved(toDos.key, toDos.index);
-      console.log(toDos.key, toDos.index);
     });
   }
 }

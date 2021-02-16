@@ -11,6 +11,7 @@
   --color-complete-btn: #69f0ae;
   --color-exit-btn: #f50057;
   --color-scrollbar: white;
+  --color-before-btn: #f4ff81;
 
   --annimation-duration: 300ms;
 }
@@ -202,6 +203,10 @@ form:hover {
 
 #button__exit:hover {
   background-color: var(--color-exit-btn);
+}
+
+#button__before:hover {
+  background-color: var(--color-before-btn);
 }
 
 .toDoList__toDo,
