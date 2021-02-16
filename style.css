@@ -331,9 +331,13 @@ form:hover {
     flex-direction: column;
   }
 
+  .toDoList__toDo {
+    margin-right: 0;
+  }
+
   .toDoList__toDo,
   .toDoList__complete {
-    max-height: 100px;
+    max-height: 200px;
   }
 
   .toDoList__toDo__list span,

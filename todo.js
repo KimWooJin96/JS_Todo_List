@@ -8,6 +8,18 @@ const TODO_COMPLETE = "toDosDone";
 let toDos = [];
 let toDosDone = [];
 
+// function priorityToDo() {
+//   const priorityList = toDoListUncomplete.querySelectorAll("li");
+//   const h3 = document.createElement("h3");
+//   let a;
+
+//   console.log(priorityList[0]);
+
+//   for (a = 0; a < priorityList.length; a++) {
+//     priorityList[a].appendChild(h3);
+//   }
+// }
+
 function countToDo() {
   const liUncomplete = toDoListUncomplete.querySelectorAll("li");
   const liComplete = toDoListComplete.querySelectorAll("li");
@@ -17,7 +29,7 @@ function countToDo() {
   if (liCount === 0) {
     countToDo.innerText = "Nothing to do!!";
   } else if (liCount === liCountComplete) {
-    countToDo.innerText = "Clear Well done!!";
+    countToDo.innerText = "All Clear Well done!!";
   } else {
     countToDo.innerText = `Completed : ${liCountComplete} / Total : ${liCount}`;
   }
@@ -234,9 +246,11 @@ function init() {
     // console.log(toDoValue);
     toDoInput.value = "";
     paintToDoInitial(toDoValue);
+    // priorityToDo();
     countToDo();
   });
   countToDo();
+  // priorityToDo();
 }
 
 init();
