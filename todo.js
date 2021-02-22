@@ -95,6 +95,7 @@ function paintToDoComplete(key, index) {
   };
 
   toDoListComplete.appendChild(CompleteToDoList);
+  CompleteToDoList.scrollIntoView();
   toDosDone.push(newToDo);
   saveToDoComplete();
 }
@@ -140,6 +141,7 @@ function createLiUncompleteTodo(key, index) {
   buttonComplete.id = "button__complete";
   buttonExit.innerText = "❌";
   buttonExit.id = "button__exit";
+
   li.appendChild(span);
   li.appendChild(div);
   div.appendChild(buttonComplete);
@@ -162,6 +164,7 @@ function paintToDoUncomplete(key, index) {
   };
 
   toDoListUncomplete.appendChild(UncompleteToDoList);
+  UncompleteToDoList.scrollIntoView();
   toDos.push(newToDo);
   // console.log(toDos);
   saveToDo();
