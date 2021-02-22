@@ -212,6 +212,8 @@ form:hover {
 
 .toDoList__toDo,
 .toDoList__complete {
+  height: 200px;
+  width: 400px;
   display: flex;
   flex-direction: column;
   margin-top: 8px;
@@ -220,6 +222,7 @@ form:hover {
   border: 2px solid var(--color-white);
   border-radius: 8px;
   max-height: 200px;
+  max-width: 400px;
 }
 
 .toDoList__toDo {
@@ -240,6 +243,7 @@ form:hover {
 
 #buttonContainer {
   margin-left: 8px;
+  display: flex;
 }
 
 /* weather */
