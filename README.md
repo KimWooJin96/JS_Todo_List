@@ -4,15 +4,20 @@ Using Html, Css, Javascript
 
 ## Function
 
-### 1. Add or delete todo list
+- Add or delete todo list
 
-### 2. Remember your name and todo list by local storage
+- Remember your name and todo list by local storage
 
-### 3. Get today's date and time imformation
+- Get today's date and time imformation
 
-### 4. Get today's weather imformation
+- Get today's weather imformation
 
-### 5. Move todo list to complete box or back to uncomplete box.
+- Move todo list to complete box or back to uncomplete box.
+
+## Skills
+
+- HTML/CSS
+- Vanilla JS
 
 ## Screenshot
 
@@ -20,14 +25,14 @@ Using Html, Css, Javascript
 
 <img src="/images/screenshot.png" width="450px" height="300px" title=""></img><br/>
 
-### After input your name
+### Input name
 
 <img src="/images/screenshot2.png" width="450px" height="300px" title=""></img><br/>
 
-### After input todos
+### Input todos
 
 <img src="/images/screenshot3.png" width="450px" height="300px" title=""></img><br/>
 
-### After click check emoji
+### complete todos
 
 <img src="/images/screenshot4.png" width="450px" height="300px" title=""></img><br/>
