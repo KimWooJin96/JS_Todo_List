@@ -14,25 +14,28 @@ Using Html, Css, Javascript
 
 - Move todo list to complete box or back to uncomplete box.
 
+* Random five backgrounds.
+
 ## Skills
 
 - HTML/CSS
 - Vanilla JS
 
-## Screenshot
+## Screenshots
 
 ### Initial Screen
 
-<img src="/images/screenshot.png" width="450px" height="300px" title=""></img><br/>
+<img src="/images/screenshot1.png" width="600px" height="400px" title=""></img><br/>
 
 ### Input name
 
-<img src="/images/screenshot2.png" width="450px" height="300px" title=""></img><br/>
+<img src="/images/screenshot2.png" width="600px" height="400px" title=""></img><br/>
 
-### Input todos
+### Input todos & Complete todos
 
-<img src="/images/screenshot3.png" width="450px" height="300px" title=""></img><br/>
+<img src="/images/screenshot3.png" width="600px" height="400px" title=""></img><br/>
+<img src="/images/screenshot4.png" width="600px" height="400px" title=""></img><br/>
 
-### complete todos
+### Weather Information for your location
 
-<img src="/images/screenshot4.png" width="450px" height="300px" title=""></img><br/>
+<img src="/images/screenshot5.png" width="600px" height="400px" title=""></img><br/>
