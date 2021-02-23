@@ -25,17 +25,19 @@ Using Html, Css, Javascript
 
 ### Initial Screen
 
-<img src="/images/screenshot1.png" width="600px" height="400px" title=""></img><br/>
+<center><img src="/images/screenshot1.png" class="screenshot" width="480px" height="233px" title=""></img><br/></center>
 
 ### Input name
 
-<img src="/images/screenshot2.png" width="600px" height="400px" title=""></img><br/>
+<center><img src="/images/screenshot2.png" width="480px" height="233px" title=""></img><br/></center>
 
 ### Input todos & Complete todos
 
-<img src="/images/screenshot3.png" width="600px" height="400px" title=""></img><br/>
-<img src="/images/screenshot4.png" width="600px" height="400px" title=""></img><br/>
+<div display="inline">
+<center><img src="/images/screenshot3.png" width="480px" height="233px" title=""></img><br/>
+<img src="/images/screenshot4.png" width="480px" height="233px" title=""></img><br/></center>
+</div>
 
 ### Weather Information for your location
 
-<img src="/images/screenshot5.png" width="600px" height="400px" title=""></img><br/>
+<center><img src="/images/screenshot5.png" width="480px" height="233px" title=""></img><br/></center>
