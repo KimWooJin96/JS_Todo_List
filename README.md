@@ -33,10 +33,8 @@ Using Html, Css, Javascript
 
 ### Input todos & Complete todos
 
-<div display="inline">
 <center><img src="/images/screenshot3.png" width="480px" height="233px" title=""></img><br/>
 <img src="/images/screenshot4.png" width="480px" height="233px" title=""></img><br/></center>
-</div>
 
 ### Weather Information for your location
 
